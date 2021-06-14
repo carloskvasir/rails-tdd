@@ -4,4 +4,12 @@ class Student
   def finished?(course)
     #true
   end
+
+  def foo(arg)
+    #true
+  end
+
+  def bar
+    #true
+  end
 end
