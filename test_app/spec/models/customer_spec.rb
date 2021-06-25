@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Customer', type: :model do
@@ -17,5 +18,12 @@ RSpec.describe 'Customer', type: :model do
     expect(customer.vip).to eq(false)
   end
 
-  it { expect{ create(:customer) }.to change {Customer.all.size}.by(1) }
+  it 'Usando o attributes_for' do
+    attrs = attributes_for(:customer)
+    # puts attrs
+    customer = Customer.create(attrs)
+    expect(customer.full_name).to start_with('Sr. ')
+  end
+
+  it { expect { create(:customer) }.to change { Customer.all.size }.by(1) }
 end
