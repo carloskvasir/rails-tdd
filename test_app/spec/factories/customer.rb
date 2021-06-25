@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :customer do
     transient do
@@ -5,8 +7,10 @@ FactoryBot.define do
     end
 
     name { Faker::Name.name }
-    email { Faker::Internet.email }
+    # email { Faker::Internet.email }
     # gender { %w[M F].sample }
+
+    sequence(:email) { |n|  "meu_email-#{n}@email.com" }
 
     trait :male do
       gender { 'M' }
