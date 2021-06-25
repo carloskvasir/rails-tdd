@@ -8,6 +8,7 @@ FactoryBot.define do
     end
 
     name { Faker::Name.name }
+    address { Faker::Address.street_address }
     # email { Faker::Internet.email }
     # gender { %w[M F].sample }
 
