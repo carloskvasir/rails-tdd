@@ -1,10 +1,12 @@
 require 'httparty'
 
 describe 'HTTParty' do
-  it 'HTTParty' do
+  it 'content-type' do
+    stub_request(:get, 'https://jsonplaceholder.typicode.com/posts/2')
+      .to_return(status: 200, body: '', headers: { 'content-type': 'application/json' })
+
     response = HTTParty.get('https://jsonplaceholder.typicode.com/posts/2')
     content_type = response.headers['content-type']
-    p content_type
-    expect(content_type).to match(/application\/json/)
+    expect(content_type).to match %r{application/json}
   end
 end
