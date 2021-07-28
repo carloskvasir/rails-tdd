@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-
   it 'belongs_to' do
     # customer = create(:customer)
     # sut = create(:order, customer: customer)
